@@ -105,7 +105,7 @@ class BrightButton: PressableAnimatedButton {
         
         backgroundColor = UIColor(red: 255/255.0, green: 242/255.0, blue: 247/255.0, alpha: 1.0)
         layer.shadowColor = brightButtonShadow.cgColor
-        titleLabel?.font = UIFont.systemFont(ofSize: 18)
+        titleLabel?.font = UIFont.systemFont(ofSize: 24, weight: .bold)
         setTitleColor(UIColor(red: 255/255.0, green: 17/255.0, blue: 126/255.0, alpha: 1.0), for: .normal)
     }
     
@@ -121,7 +121,7 @@ class DimButton: PressableAnimatedButton {
                 amount in
                 
                 let fixedAmount = abs(1 - amount)
-                return 1.0 - fixedAmount * 0.4
+                return 1.0 - fixedAmount * 0.25
             }
         }
     }
@@ -129,11 +129,11 @@ class DimButton: PressableAnimatedButton {
     init() {
         super.init(parameters: DimPressableParameters())
         
-        let brightButtonShadow = UIColor(red: 235/255.0, green: 0/255.0, blue: 0/255.0, alpha: 1.0)
+        let brightButtonShadow = UIColor(red: 235/255.0, green: 0/255.0, blue: 0/255.0, alpha: 0.5)
         
         backgroundColor = UIColor(red: 254/255.0, green: 100/255.0, blue: 149/255.0, alpha: 1.0)
         layer.shadowColor = brightButtonShadow.cgColor
-        titleLabel?.font = UIFont.systemFont(ofSize: 18)
+        titleLabel?.font = UIFont.systemFont(ofSize: 24, weight: .bold)
     }
     
     required init?(coder aDecoder: NSCoder) {
