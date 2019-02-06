@@ -12,9 +12,26 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
+        let dimButton = DimButton()
+        dimButton.setTitle("Press me!!", for: .normal)
+        dimButton.translatesAutoresizingMaskIntoConstraints = false
+        
+        let brightButton = BrightButton()
+        brightButton.setTitle("Press me!!", for: .normal)
+        brightButton.translatesAutoresizingMaskIntoConstraints = false
+        
+        view.addSubview(brightButton)
+        view.addSubview(dimButton)
+        
+        NSLayoutConstraint.activate([
+            brightButton.widthAnchor.constraint(equalTo: view.safeAreaLayoutGuide.widthAnchor, multiplier: 1, constant: -40),
+            brightButton.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: 70),
+            brightButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            dimButton.widthAnchor.constraint(equalTo: view.safeAreaLayoutGuide.widthAnchor, multiplier: 1, constant: -40),
+            dimButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            dimButton.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: -70)
+            ])
     }
-
-
 }
 

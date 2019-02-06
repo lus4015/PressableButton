@@ -34,15 +34,13 @@ class PressableAnimatedButton: UIButton {
         
         super.init(frame: .zero)
         
-        backgroundColor = .keyPink
+        let shadowColor = UIColor(red: 211/255.0, green: 67/255.0, blue: 7/255.0, alpha: 1.0)
         
         layer.cornerRadius = 8.0
-        layer.shadowColor = UIColor.onboardingShadow.cgColor
+        layer.shadowColor = shadowColor.cgColor
         layer.shadowOffset = CGSize(width: 0, height: 4)
         
         titleLabel?.font = UIFont.systemFont(ofSize: 24, weight: .bold)
-        
-        setTitleColor(.white, for: .normal)
         
         let longPressGesture = UILongPressGestureRecognizer(target: self, action: #selector(pressed(_:)))
         longPressGesture.minimumPressDuration = 0.0
@@ -55,12 +53,10 @@ class PressableAnimatedButton: UIButton {
     }
     
     @objc private func pressed(_ sender: UILongPressGestureRecognizer) {
-        
         switch sender.state {
         case .began:
             initialPositionInView = sender.location(in: self)
             layer.animatePressAmount(pressAmount: 0.0, amount: 1.0, parameters: parameters)
-            
         case .changed:
             let pos = sender.location(in: self)
             
@@ -69,7 +65,6 @@ class PressableAnimatedButton: UIButton {
                 sender.isEnabled = true
             }
         case .ended:
-            
             let point = sender.location(in: self)
             
             if bounds.contains(point) {
@@ -83,21 +78,15 @@ class PressableAnimatedButton: UIButton {
                 sender.isEnabled = true
                 layer.animatePressAmount(pressAmount: 1.0, amount: 0.0, parameters: parameters)
             }
-            
         case .cancelled:
             layer.animatePressAmount(pressAmount: 1.0, amount: 0.0, parameters: parameters)
         default:
             break
         }
-        
     }
-    
 }
 
-class OnboardingButton: PressableButton {
-}
-
-class BrightButton: PressableButton {
+class BrightButton: PressableAnimatedButton {
     struct BrightPressableParameters: PressableParameters {
         var shadowOpacityForPressAmount: (CGFloat) -> CGFloat {
             return {
@@ -111,13 +100,13 @@ class BrightButton: PressableButton {
     
     init() {
         super.init(parameters: BrightPressableParameters())
+
+        let brightButtonShadow = UIColor(red: 235/255.0, green: 0/255.0, blue: 0/255.0, alpha: 1.0)
         
-        backgroundColor = .onboardingBackground
-        layer.shadowColor = UIColor.brightButtonShadow.cgColor
+        backgroundColor = UIColor(red: 255/255.0, green: 242/255.0, blue: 247/255.0, alpha: 1.0)
+        layer.shadowColor = brightButtonShadow.cgColor
         titleLabel?.font = UIFont.systemFont(ofSize: 18)
-        setTitleColor(.keyPink, for: .normal)
-        
-        
+        setTitleColor(UIColor(red: 255/255.0, green: 17/255.0, blue: 126/255.0, alpha: 1.0), for: .normal)
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -125,7 +114,7 @@ class BrightButton: PressableButton {
     }
 }
 
-class DimButton: PressableButton {
+class DimButton: PressableAnimatedButton {
     struct DimPressableParameters: PressableParameters {
         var shadowOpacityForPressAmount: (CGFloat) -> CGFloat {
             return {
@@ -140,10 +129,11 @@ class DimButton: PressableButton {
     init() {
         super.init(parameters: DimPressableParameters())
         
+        let brightButtonShadow = UIColor(red: 235/255.0, green: 0/255.0, blue: 0/255.0, alpha: 1.0)
+        
         backgroundColor = UIColor(red: 254/255.0, green: 100/255.0, blue: 149/255.0, alpha: 1.0)
-        layer.shadowColor = UIColor.brightButtonShadow.cgColor
+        layer.shadowColor = brightButtonShadow.cgColor
         titleLabel?.font = UIFont.systemFont(ofSize: 18)
-        setTitleColor(.white, for: .normal)
     }
     
     required init?(coder aDecoder: NSCoder) {

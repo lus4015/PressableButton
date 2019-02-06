@@ -12,6 +12,8 @@
 		CDEAE2F0220A5FCB000276E6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CDEAE2EE220A5FCB000276E6 /* Main.storyboard */; };
 		CDEAE2F2220A5FCC000276E6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CDEAE2F1220A5FCC000276E6 /* Assets.xcassets */; };
 		CDEAE2F5220A5FCC000276E6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CDEAE2F3220A5FCC000276E6 /* LaunchScreen.storyboard */; };
+		CDEAE2FD220A6076000276E6 /* PressableAnimatedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDEAE2FC220A6076000276E6 /* PressableAnimatedButton.swift */; };
+		CDEAE300220A60FF000276E6 /* CALayer+Animate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDEAE2FF220A60FF000276E6 /* CALayer+Animate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +24,8 @@
 		CDEAE2F1220A5FCC000276E6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CDEAE2F4220A5FCC000276E6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CDEAE2F6220A5FCC000276E6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CDEAE2FC220A6076000276E6 /* PressableAnimatedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PressableAnimatedButton.swift; sourceTree = "<group>"; };
+		CDEAE2FF220A60FF000276E6 /* CALayer+Animate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CALayer+Animate.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +58,7 @@
 		CDEAE2E9220A5FCB000276E6 /* PressableButton */ = {
 			isa = PBXGroup;
 			children = (
+				CDEAE2FE220A60D0000276E6 /* AnimatedButton */,
 				CDEAE2EA220A5FCB000276E6 /* AppDelegate.swift */,
 				CDEAE2EC220A5FCB000276E6 /* ViewController.swift */,
 				CDEAE2EE220A5FCB000276E6 /* Main.storyboard */,
@@ -62,6 +67,15 @@
 				CDEAE2F6220A5FCC000276E6 /* Info.plist */,
 			);
 			path = PressableButton;
+			sourceTree = "<group>";
+		};
+		CDEAE2FE220A60D0000276E6 /* AnimatedButton */ = {
+			isa = PBXGroup;
+			children = (
+				CDEAE2FC220A6076000276E6 /* PressableAnimatedButton.swift */,
+				CDEAE2FF220A60FF000276E6 /* CALayer+Animate.swift */,
+			);
+			path = AnimatedButton;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -136,7 +150,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				CDEAE2ED220A5FCB000276E6 /* ViewController.swift in Sources */,
+				CDEAE2FD220A6076000276E6 /* PressableAnimatedButton.swift in Sources */,
 				CDEAE2EB220A5FCB000276E6 /* AppDelegate.swift in Sources */,
+				CDEAE300220A60FF000276E6 /* CALayer+Animate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
